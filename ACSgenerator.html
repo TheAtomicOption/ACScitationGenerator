@@ -1,17 +1,53 @@
 <html>
+<head>
+    <title>ACS Citation Machine</title>
+    <link rel="stylesheet" type="text/css" href="ACScss.css" />
+</head>
+<body>
+    <h1>ACS Citation Machine</h1>
+    <h3>Source type:</h3>
+    <!--
+        Full ACS support will require all fo these things!
+        <input type="radio" name="source" value="Website" /> Website
 
+    <br /><input type="radio" name="source" value="Newspaper Article (Library DB)" /> Newspaper Article (Library DB)
+    <br /><input type="radio" name="source" value="Newspaper Article (Web Site)" /> Newspaper Article (Web Site)
+    <br /><input type="radio" name="source" value="Computer Programs/Software" /> Computer Programs/Software
+    <br /><input type="radio" name="source" value="Book" /> Book
+    <br /><input type="radio" name="source" value="Chapter in Edited Book" /> Chapter in Edited Book
+    <br /><input type="radio" name="source" value="Non-Scientific Publication" /> Non-Scientific Publication
+    <br /><input type="radio" name="source" value="Technical Report" /> Technical Report
+    <br /><input type="radio" name="source" value="Conference Proceedings" /> Conference Proceedings
+    <br /><input type="radio" name="source" value="Government Report" /> Government Report
+    <br /><input type="radio" name="source" value="Thesis" /> Thesis
+    <br /><input type="radio" name="source" value="Patent" /> Patent
+    <br /><input type="radio" name="source" value="Lecture" /> Lecture
+        -->
+    <p style="">
+        <input type="radio" name="source" value="JO"  /> Journal Article (Online)
+        <br />
+        <input type="radio" name="source" value="JP" /> Journal Article (Print)
+    </p>
+    <br />
+        <div style="float:left;text-align:right">
+            Authors<br />
+            Article Title <br />
+            Year <br />
+        </div>
+        <div style="float:left">
+            <input type="text" id="lastname"/> Lastname FirstInitial. separate with semicolon<br />
+            <input type="text" id="title"/><br />
+            <input type="text" id="year"/><br />
+        </div>
+    <br />
+    <div style="clear: both">
+        <br />In Text Citation:
+        <p id="InTextCitation"></p>
+        <br />Bibliographic Citation:
+        <p id="FullCitation"></p>
+        
+    </div>
 
-  <h1>ACS Citation Machine</h1>
-  </br>
-  Authors <input type="text" id="lastname"></input> Lastname FirstInitial. separate with semicolon</br>
-  Article Title <input type="text" id="title"></input></br>
-  Year <input type="text" id="year"></input></br>
-  </br>
-  </br>In Text Citation:
-  <p id="InTextCitation"></p>
-  </br>Bibliographic Citation:
-  <p id="FullCitation"></p>
-
-  <script src="ACSgenerator.js"></script>
-
+    <script src="ACSgenerator.js"></script>
+</body>
 </html>
