@@ -24,20 +24,29 @@
     <br /><input type="radio" name="source" value="Lecture" /> Lecture
         -->
     <p style="">
-        <input type="radio" name="source" value="JO"  /> Journal Article (Online)
+        <input type="radio" name="source" id="sourceJO" /> Journal Article (Online)
         <br />
-        <input type="radio" name="source" value="JP" /> Journal Article (Print)
+        <input type="radio" name="source" id="sourceJP" /> Journal Article (Print)
     </p>
     <br />
         <div style="float:left;text-align:right">
             Authors<br />
             Article Title <br />
+            Journal<br/>
             Year <br />
+            Month<br />
+            Volume<br />
+            Pages<br />
+
         </div>
         <div style="float:left">
-            <input type="text" id="lastname"/> Lastname FirstInitial. separate with semicolon<br />
+            <input type="text" id="lastname"/> Lastname FirstInitial. delimited with ;<br />
             <input type="text" id="title"/><br />
+            <input type="text" id="journal" /><br />
             <input type="text" id="year"/><br />
+            <input type="text" id="month"/><br />
+            <input type="text" id="volume" /><br />
+            <input type="text" id="pages" /><br />
         </div>
     <br />
     <div style="clear: both">
