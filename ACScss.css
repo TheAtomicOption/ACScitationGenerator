@@ -1,8 +1,19 @@
 input, textarea, select, button {
     width : 350px;
     margin: 0;
-
     -webkit-box-sizing: border-box; /* For legacy WebKit based browsers */
     -moz-box-sizing: border-box; /* For all Gecko based browsers */
     box-sizing: border-box;
     }
+input[type="radio"]
+{
+    vertical-align:middle;
+}
+label
+{
+    width:7em;
+    float:left;
+    text-align:right;
+    margin-right:0.5em;
+    display:block;
+}

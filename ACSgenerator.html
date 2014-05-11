@@ -23,30 +23,26 @@
     <br /><input type="radio" name="source" value="Patent" /> Patent
     <br /><input type="radio" name="source" value="Lecture" /> Lecture
         -->
-    <p style="">
-        <input type="radio" name="source" id="sourceJO" /> Journal Article (Online)
+    <div style="clear:both;">
+        <label for="sourceJO" style="width:9em;">Journal Article (Online)</label><input type="radio" name="source" id="sourceJO" style="width:auto" />
         <br />
-        <input type="radio" name="source" id="sourceJP" /> Journal Article (Print)
-    </p>
+        <label for="sourceJP" style="width:9em;">Journal Article (Print)</label><input type="radio" name="source" id="sourceJP" style="width:auto" /> 
+        <br/>
+        <label for="sourceWS" style="width:9em;">Web Site</label><input type="radio" name="source" id="sourceWS" style="width:auto" /> 
+        <br/>
+    </div>
     <br />
-        <div style="float:left;text-align:right">
-            Authors<br />
-            Article Title <br />
-            Journal<br/>
-            Year <br />
-            Month<br />
-            Volume<br />
-            Pages<br />
 
-        </div>
         <div style="float:left">
-            <input type="text" id="lastname"/> Lastname FirstInitial. delimited with ;<br />
-            <input type="text" id="title"/><br />
-            <input type="text" id="journal" /><br />
-            <input type="text" id="year"/><br />
-            <input type="text" id="month"/><br />
-            <input type="text" id="volume" /><br />
-            <input type="text" id="pages" /><br />
+            <label for="lastname">Authors</label> <input type="text" id="lastname"/> Lastname FirstInitial. delimited with ;<br />
+            <label for="title">Article Title</label> <input type="text" id="title"/><br />
+            <label for="journal">Journal</label><input type="text" id="journal" /><br />
+            <label for="year">Year</label><input type="text" id="year"/><br />
+            <label for="month">Month</label><input type="text" id="month"/><br />
+            <label for="volume">Volume</label><input type="text" id="volume" /><br />
+            <label for="pages">Pages</label><input type="text" id="pages" /><br />
+            <div id="div_url" hidden><label for="url">URL</label><input type="text" id="url" /><br/></div>
+
         </div>
     <br />
     <div style="clear: both">

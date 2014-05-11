@@ -26,12 +26,14 @@
         , InTextCitation=document.getElementById('InTextCitation')
         , oldText=FullCitation.value
         , oldInText=InTextCitation.value
-        , timeout=null;
+        , timeout = null;
+
 
       /* handleChange is called 50ms after the user stops
       typing. */
         
         function handleChange() {
+            document.getElementById('sourceWS').checked ? document.getElementById('div_url').setAttribute('class','visible') : document.getElementById('div_url').setAttribute('class','hidden');
                 //Full citation value             
             var newCitation = lastname.value + ' ' + title.value + '. '
                 + journal.value + ' '
@@ -42,10 +44,10 @@
 
               //In Text value
               var newInText = '(' + lastname.value.substr(0, replaceNull(lastname.value.indexOf(';'), lastname.value.length))
-                  + (lastname.value.length - lastname.value.replace(';','').length >= 2 ? 'et. al'
-                  : (lastname.value.length = lastname.value.replace(';','').length ? '' 
-                  : ', ' + lastname.value.substr(lastname.value.indexOf(';'),lastname.value.length-lastname.value.indexOf(';')))
-                   )
+                  + (lastname.value.length - lastname.value.split(';').join('').length >= 2 ? 'et. al'
+                  : (lastname.value.length == lastname.value.split(';').join('').length ? ''
+                  : ' and ' + lastname.value.substr(lastname.value.indexOf(';')+1, lastname.value.length - lastname.value.indexOf(';'))
+                  ))
                    +', ' + year.value + ')' ;
 
 
