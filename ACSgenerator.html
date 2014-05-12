@@ -34,14 +34,47 @@
     <br />
 
         <div style="float:left">
-            <label for="lastname">Authors</label> <input type="text" id="lastname"/> Lastname FirstInitial. delimited with ;<br />
+            <label for="lastname">Authors</label> <input type="text" id="lastname"/> Lastname, FirstInitial. delimited with ;<br />
             <label for="title">Article Title</label> <input type="text" id="title"/><br />
-            <label for="journal">Journal</label><input type="text" id="journal" /><br />
+            <div id="div_journal"><label for="journal">Journal</label><input type="text" id="journal" /><br /></div>
             <label for="year">Year</label><input type="text" id="year"/><br />
-            <label for="month">Month</label><input type="text" id="month"/><br />
+            <!-- <label for="month">Month</label><input type="text" id="month"/><br /> -->
+            <label for="month">Month</label>
+            <select id="month">
+                <option value="Jan">Jan</option>
+                <option value="Feb">Feb</option>
+                <option value="Mar">Mar</option>
+                <option value="Apr">Apr</option>
+                <option value="May">May</option>
+                <option value="Jun">Jun</option>
+                <option value="Jul">Jul</option>
+                <option value="Aug">Aug</option>
+                <option value="Sep">Sep</option>
+                <option value="Oct">Oct</option>
+                <option value="Nov">Nov</option>
+                <option value="Dec">Dec</option>
+            </select><br />
             <label for="volume">Volume</label><input type="text" id="volume" /><br />
             <label for="pages">Pages</label><input type="text" id="pages" /><br />
-            <div id="div_url" hidden><label for="url">URL</label><input type="text" id="url" /><br/></div>
+            <div id="div_url"><label for="url">URL</label><input type="text" id="url" /><br/></div>
+            <div id="div_AYear"><label for="AYear">Year accessed</label><input type="text" id="AYear" /><br /></div>
+            <div id="div_AMonth"><label for="AMonth">Month accessed</label>
+                <select id="AMonth">
+                    <option value="Jan">Jan</option>
+                    <option value="Feb">Feb</option>
+                    <option value="Mar">Mar</option>
+                    <option value="Apr">Apr</option>
+                    <option value="May">May</option>
+                    <option value="Jun">Jun</option>
+                    <option value="Jul">Jul</option>
+                    <option value="Aug">Aug</option>
+                    <option value="Sep">Sep</option>
+                    <option value="Oct">Oct</option>
+                    <option value="Nov">Nov</option>
+                    <option value="Dec">Dec</option>
+                </select><br /><br />
+            </div>
+            
 
         </div>
     <br />
