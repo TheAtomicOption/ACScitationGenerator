@@ -45,6 +45,7 @@
         , AMonth = document.getElementById('AMonth')
         , r_sourceWS = document.getElementById('sourceWS')
         , r_sourceJO = document.getElementById('sourceJO')
+        , r_sourceJO_o = document.getElementById('sourceJO_o')
         , r_sourceJP = document.getElementById('sourceJP')
         , FullCitation = document.getElementById('FullCitation')
         , InTextCitation = document.getElementById('InTextCitation')
@@ -66,6 +67,13 @@
                 document.getElementById('div_url').removeAttribute('hidden');
                 document.getElementById('div_AYear').removeAttribute('hidden');
                 document.getElementById('div_AMonth').removeAttribute('hidden');
+                document.getElementById('div_sourceJO_o').setAttribute('hidden', 1);
+                document.getElementById('div_volume').setAttribute('hidden', 1);
+                document.getElementById('div_pages').setAttribute('hidden', 1);
+                document.getElementById('div_journal').setAttribute('hidden', 1);
+
+                document.getElementById('div_year').setAttribute('hidden', 1);
+                document.getElementById('div_month').setAttribute('hidden', 1);
 
                 newCitation = lastname.value + ' ' + title.value + '. '
                 + journal.value + ' '
@@ -78,6 +86,12 @@
                 document.getElementById('div_url').setAttribute('hidden', 1);
                 document.getElementById('div_AYear').setAttribute('hidden', 1);
                 document.getElementById('div_AMonth').setAttribute('hidden', 1);
+                document.getElementById('div_sourceJO_o').setAttribute('hidden', 1);
+                document.getElementById('div_volume').removeAttribute('hidden');
+                document.getElementById('div_pages').removeAttribute('hidden');
+                document.getElementById('div_journal').removeAttribute('hidden');
+                document.getElementById('div_year').removeAttribute('hidden');
+                document.getElementById('div_month').removeAttribute('hidden');
 
                 newCitation = lastname.value + ' ' + title.value + '. '
                 + '<i>' + journal.value + '</i> '
@@ -91,10 +105,16 @@
                 document.getElementById('div_url').removeAttribute('hidden');
                 document.getElementById('div_AYear').removeAttribute('hidden');
                 document.getElementById('div_AMonth').removeAttribute('hidden');
+                document.getElementById('div_sourceJO_o').removeAttribute('hidden');
+                document.getElementById('div_volume').removeAttribute('hidden');
+                document.getElementById('div_pages').removeAttribute('hidden');
+                document.getElementById('div_year').removeAttribute('hidden');
+                document.getElementById('div_month').removeAttribute('hidden');
+
 
                 newCitation = lastname.value + ' ' + title.value + '. '
                 + '<i>' + journal.value + '</i> '
-                + '[Online] '
+                + '[' + r_sourceJO_o.value + '] '
                 + month.value + ' '
                 + '<b>' + year.value + '</b>, '
                 + '<i>' + volume.value + '</i>, '
@@ -139,6 +159,7 @@
             r_sourceJO.onclick = r_sourceJP.onclick = r_sourceWS.onclick =
             AMonth.onclick = AMonth.onkeydown = AMonth.onkeyup =
             AYear.onclick = AYear.onkeydown = AYear.onkeyup =
+            r_sourceJO_o.onclick = r_sourceJO_o.onkeydown = r_sourceJO_o.onkeyup =
             pages.onkeydown = pages.onkeyup = pages.onclick = eventHandler;
     }
 

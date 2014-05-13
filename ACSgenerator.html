@@ -26,9 +26,15 @@
     <div style="clear:both;">
         <label for="sourceJO" style="width:9em;">Journal Article (Online)</label><input type="radio" name="source" value="sourceJO" id="sourceJO" style="width:auto" checked/>
         <br />
+        <div id="div_sourceJO_o">
+            <label for="sourceJO_o">Access Type</label><select id="sourceJO_o" style="width:auto;">
+            <option value="Online">Online Journal or Database</option>
+            <option value="Online early access">Early online access publication</option>
+        </select>
+        </div>
         <label for="sourceJP" style="width:9em;">Journal Article (Print)</label><input type="radio" name="source" value="sourceJP" id="sourceJP" style="width:auto" /> 
         <br/>
-        <label for="sourceWS" style="width:9em;">Web Site</label><input type="radio" name="source" value="sourceWS" id="sourceWS" style="width:auto" /> 
+        <label for="sourceWS" style="width:9em;">Web Page</label><input type="radio" name="source" value="sourceWS" id="sourceWS" style="width:auto" /> 
         <br/>
     </div>
     <br />
@@ -37,25 +43,27 @@
             <label for="lastname">Authors</label> <input type="text" id="lastname"/> Lastname, FirstInitial. delimited with ;<br />
             <label for="title">Article Title</label> <input type="text" id="title"/><br />
             <div id="div_journal"><label for="journal">Journal</label><input type="text" id="journal" /><br /></div>
-            <label for="year">Year</label><input type="text" id="year"/><br />
+            <div id="div_year"><label for="year">Year</label><input type="text" id="year" /><br /></div>
             <!-- <label for="month">Month</label><input type="text" id="month"/><br /> -->
-            <label for="month">Month</label>
-            <select id="month">
-                <option value="Jan">Jan</option>
-                <option value="Feb">Feb</option>
-                <option value="Mar">Mar</option>
-                <option value="Apr">Apr</option>
-                <option value="May">May</option>
-                <option value="Jun">Jun</option>
-                <option value="Jul">Jul</option>
-                <option value="Aug">Aug</option>
-                <option value="Sep">Sep</option>
-                <option value="Oct">Oct</option>
-                <option value="Nov">Nov</option>
-                <option value="Dec">Dec</option>
-            </select><br />
-            <label for="volume">Volume</label><input type="text" id="volume" /><br />
-            <label for="pages">Pages</label><input type="text" id="pages" /><br />
+            <div id="div_month">
+                <label for="month">Month</label>
+                <select id="month">
+                    <option value="Jan">Jan</option>
+                    <option value="Feb">Feb</option>
+                    <option value="Mar">Mar</option>
+                    <option value="Apr">Apr</option>
+                    <option value="May">May</option>
+                    <option value="Jun">Jun</option>
+                    <option value="Jul">Jul</option>
+                    <option value="Aug">Aug</option>
+                    <option value="Sep">Sep</option>
+                    <option value="Oct">Oct</option>
+                    <option value="Nov">Nov</option>
+                    <option value="Dec">Dec</option>
+                </select><br />
+            </div>
+            <div id="div_volume"><label for="volume">Volume</label><input type="text" id="volume" /><br /></div>
+            <div id="div_pages"><label for="pages">Pages</label><input type="text" id="pages" /><br /></div>
             <div id="div_url"><label for="url">URL</label><input type="text" id="url" /><br/></div>
             <div id="div_AYear"><label for="AYear">Year accessed</label><input type="text" id="AYear" /><br /></div>
             <div id="div_AMonth"><label for="AMonth">Month accessed</label>
@@ -79,7 +87,7 @@
         </div>
     <br />
     <div style="clear: both">
-        <br />In Text Citation:
+        <br />In Text Citation (ACS Style also allows superscript or parenthetic numbered references):
         <p id="InTextCitation"></p>
         <br />Bibliographic Citation:
         <p id="FullCitation"></p>
