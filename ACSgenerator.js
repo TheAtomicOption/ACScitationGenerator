@@ -29,7 +29,9 @@
         if (isNaN(cl_ayear.value.substr(0, 4))) { cl_ayear.value = ''; }
         if (cl_ayear.value.length > 4) { cl_ayear.value = cl_ayear.value.substr(0, 4); }
     }
-    //################ End Utility Functions ###################
+//################ End Utility Functions ###################
+
+
 
 /* setupUpdater will be called once, on page load.*/
     function setupUpdater(){
@@ -53,28 +55,72 @@
         , oldInText=InTextCitation.value
         , timeout = null;
 
-        
+        //abstracts field changes so the attributes don't have to be set on irrelevant data updates
+        //mostly an excuse to play with arrays
+        function SourceSwitch() {
+
+            //define all fields and field lists for source types
+            var allfields = [
+                'div_url',
+                'div_AYear',
+                'div_AMonth',
+                'div_sourceJO_o',
+                'div_volume',
+                'div_pages',
+                'div_journal',
+                'div_year',
+                'div_month'
+            ]
+            , fieldsWS = [
+                'div_url',
+                'div_AYear',
+                'div_AMonth',
+            ]
+            , fieldsJO = [
+                'div_url',
+                'div_AYear',
+                'div_AMonth',
+                'div_sourceJO_o',
+                'div_volume',
+                'div_pages',
+                'div_journal',
+                'div_year',
+                'div_month'
+            ]
+            , fieldsJP = [
+                'div_volume',
+                'div_pages',
+                'div_journal',
+                'div_year',
+                'div_month'
+            ]
+            ;
+
+           //test which field is selected
+            var sourcefields;
+            r_sourceJO.checked ? sourcefields = fieldsJO : true;
+            r_sourceWS.checked ? sourcefields = fieldsWS : true;
+            r_sourceJP.checked ? sourcefields = fieldsJP : true;
+                
+            //loop through selected array to turn fields on/off
+            for (var i = 0; i < allfields.length; i++) {
+                if (sourcefields.indexOf(allfields[i]) > -1)
+                { document.getElementById(allfields[i]).removeAttribute('hidden'); }
+                else { document.getElementById(allfields[i]).setAttribute('hidden', 1); }
+            }
+
+            //All instances of a source switch should re-evaluate the citation.
+            handleChange();
+        }
       /* handleChange is called 50ms after the user stops
       typing. */
-        
+
         function handleChange() {
             
             cleanup();
             //Full citation value
             var newCitation = '';
             if (r_sourceWS.checked) {
-                //hide/unhide needed fields
-                document.getElementById('div_url').removeAttribute('hidden');
-                document.getElementById('div_AYear').removeAttribute('hidden');
-                document.getElementById('div_AMonth').removeAttribute('hidden');
-                document.getElementById('div_sourceJO_o').setAttribute('hidden', 1);
-                document.getElementById('div_volume').setAttribute('hidden', 1);
-                document.getElementById('div_pages').setAttribute('hidden', 1);
-                document.getElementById('div_journal').setAttribute('hidden', 1);
-
-                document.getElementById('div_year').setAttribute('hidden', 1);
-                document.getElementById('div_month').setAttribute('hidden', 1);
-
                 newCitation = lastname.value + ' ' + title.value + '. '
                 + journal.value + ' '
                 + replaceNull(url.value, "{Missing URL}")
@@ -82,17 +128,6 @@
 
             }
             else if (r_sourceJP.checked) {
-                //hide/unhide needed fields
-                document.getElementById('div_url').setAttribute('hidden', 1);
-                document.getElementById('div_AYear').setAttribute('hidden', 1);
-                document.getElementById('div_AMonth').setAttribute('hidden', 1);
-                document.getElementById('div_sourceJO_o').setAttribute('hidden', 1);
-                document.getElementById('div_volume').removeAttribute('hidden');
-                document.getElementById('div_pages').removeAttribute('hidden');
-                document.getElementById('div_journal').removeAttribute('hidden');
-                document.getElementById('div_year').removeAttribute('hidden');
-                document.getElementById('div_month').removeAttribute('hidden');
-
                 newCitation = lastname.value + ' ' + title.value + '. '
                 + '<i>' + journal.value + '</i> '
                 + month.value + ' '
@@ -101,17 +136,6 @@
                 + pages.value + ' ';
             }
             else if (r_sourceJO.checked) {
-                //hide/unhide needed fields
-                document.getElementById('div_url').removeAttribute('hidden');
-                document.getElementById('div_AYear').removeAttribute('hidden');
-                document.getElementById('div_AMonth').removeAttribute('hidden');
-                document.getElementById('div_sourceJO_o').removeAttribute('hidden');
-                document.getElementById('div_volume').removeAttribute('hidden');
-                document.getElementById('div_pages').removeAttribute('hidden');
-                document.getElementById('div_year').removeAttribute('hidden');
-                document.getElementById('div_month').removeAttribute('hidden');
-
-
                 newCitation = lastname.value + ' ' + title.value + '. '
                 + '<i>' + journal.value + '</i> '
                 + '[' + r_sourceJO_o.value + '] '
@@ -149,18 +173,19 @@
               timeout=setTimeout(handleChange, 50);
           }
 
-            lastname.onkeydown = lastname.onkeyup = lastname.onclick =
-            title.onkeydown = title.onkeyup = title.onclick =
-            journal.onkeydown = journal.onkeyup = journal.onclick =
-            year.onkeydown = year.onkeyup = year.onclick =
-            month.onkeydown = month.onkeyup = month.onclick =
-            volume.onkeydown = volume.onkeyup = volume.onclick =
-            url.onkeydown = url.onkeyup = url.onclick =
-            r_sourceJO.onclick = r_sourceJP.onclick = r_sourceWS.onclick =
-            AMonth.onclick = AMonth.onkeydown = AMonth.onkeyup =
-            AYear.onclick = AYear.onkeydown = AYear.onkeyup =
-            r_sourceJO_o.onclick = r_sourceJO_o.onkeydown = r_sourceJO_o.onkeyup =
-            pages.onkeydown = pages.onkeyup = pages.onclick = eventHandler;
+          r_sourceJO.onclick = r_sourceJP.onclick = r_sourceWS.onclick =
+          r_sourceJO_o.onclick = r_sourceJO_o.onkeydown = r_sourceJO_o.onkeyup = SourceSwitch;
+
+          lastname.onkeydown = lastname.onkeyup = lastname.onclick =
+          title.onkeydown = title.onkeyup = title.onclick =
+          journal.onkeydown = journal.onkeyup = journal.onclick =
+          year.onkeydown = year.onkeyup = year.onclick =
+          month.onkeydown = month.onkeyup = month.onclick =
+          volume.onkeydown = volume.onkeyup = volume.onclick =
+          url.onkeydown = url.onkeyup = url.onclick =
+          AMonth.onclick = AMonth.onkeydown = AMonth.onkeyup =
+          AYear.onclick = AYear.onkeydown = AYear.onkeyup =
+          pages.onkeydown = pages.onkeyup = pages.onclick = eventHandler;
     }
 
     setupUpdater();
