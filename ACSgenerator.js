@@ -103,6 +103,9 @@
                 'div_year',
                 'div_month'
             ]
+            , fieldsBk = [
+                'div_year'
+            ]
             ;
 
            //test which field is selected
@@ -133,7 +136,7 @@
                 newCitation = lastname.value + ' ' + title.value + '. '
                 + journal.value + ' '
                 + replaceNull(url.value, "{Missing URL}")
-                + ' (accessed ' + AMonth.value + ' ' + ADay.value + ', ' + AYear.value + ')';
+                + ' (accessed ' + AMonth.value + ' ' + ADay.value + ', ' + AYear.value + ').';
 
             }
             else if (r_sourceJP.checked) {
@@ -159,7 +162,7 @@
               if (newCitation==oldText) return; else oldText=newCitation;
               set(FullCitation, newCitation);
 
-              //In Text value
+              //In Text value ################################
               var newInText = '(' + lastname.value.substr(0, replaceNull(lastname.value.indexOf(';'), lastname.value.length))
                   + (lastname.value.length - lastname.value.split(';').join('').length >= 2 ? 'et. al'
                   : (lastname.value.length == lastname.value.split(';').join('').length ? ''
