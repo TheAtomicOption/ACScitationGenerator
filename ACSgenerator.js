@@ -28,6 +28,11 @@
 
         if (isNaN(cl_ayear.value.substr(0, 4))) { cl_ayear.value = ''; }
         if (cl_ayear.value.length > 4) { cl_ayear.value = cl_ayear.value.substr(0, 4); }
+
+        var cl_aday = document.getElementById('ADay');
+
+        if (isNaN(cl_aday.value.substr(0, 2))) { cl_aday.value = ''; }
+        if (cl_aday.value.length > 2) { cl_aday.value = cl_aday.value.substr(0, 2);}
     }
 //################ End Utility Functions ###################
 
@@ -45,6 +50,7 @@
         , url = document.getElementById('url')
         , AYear = document.getElementById('AYear')
         , AMonth = document.getElementById('AMonth')
+        , ADay = document.getElementById('ADay')
         , r_sourceWS = document.getElementById('sourceWS')
         , r_sourceJO = document.getElementById('sourceJO')
         , r_sourceJO_o = document.getElementById('sourceJO_o')
@@ -64,6 +70,7 @@
                 'div_url',
                 'div_AYear',
                 'div_AMonth',
+                'div_ADay',
                 'div_sourceJO_o',
                 'div_volume',
                 'div_pages',
@@ -75,11 +82,13 @@
                 'div_url',
                 'div_AYear',
                 'div_AMonth',
+                'div_ADay'
             ]
             , fieldsJO = [
                 'div_url',
                 'div_AYear',
                 'div_AMonth',
+                'div_ADay',
                 'div_sourceJO_o',
                 'div_volume',
                 'div_pages',
@@ -124,7 +133,7 @@
                 newCitation = lastname.value + ' ' + title.value + '. '
                 + journal.value + ' '
                 + replaceNull(url.value, "{Missing URL}")
-                + ' (accessed ' + AMonth.value + ', ' + AYear.value + ')';
+                + ' (accessed ' + AMonth.value + ' ' + ADay.value + ', ' + AYear.value + ')';
 
             }
             else if (r_sourceJP.checked) {
@@ -144,7 +153,7 @@
                 + '<i>' + volume.value + '</i>, '
                 + pages.value + ' '
                 + replaceNull(url.value, "{Missing URL}")
-                + ' (accessed ' + AMonth.value + ', ' + AYear.value + ')';
+                + ' (accessed ' + AMonth.value + ' ' + ADay.value +  ', ' + AYear.value + ').';
             }
 
               if (newCitation==oldText) return; else oldText=newCitation;
@@ -185,6 +194,7 @@
           url.onkeydown = url.onkeyup = url.onclick =
           AMonth.onclick = AMonth.onkeydown = AMonth.onkeyup =
           AYear.onclick = AYear.onkeydown = AYear.onkeyup =
+          ADay.onclick = ADay.onkeydown = ADay.onkeyup =
           pages.onkeydown = pages.onkeyup = pages.onclick = eventHandler;
     }
 
