@@ -13,7 +13,6 @@
     <br /><input type="radio" name="source" value="Newspaper Article (Library DB)" /> Newspaper Article (Library DB)
     <br /><input type="radio" name="source" value="Newspaper Article (Web Site)" /> Newspaper Article (Web Site)
     <br /><input type="radio" name="source" value="Computer Programs/Software" /> Computer Programs/Software
-    <br /><input type="radio" name="source" value="Book" /> Book
     <br /><input type="radio" name="source" value="Chapter in Edited Book" /> Chapter in Edited Book
     <br /><input type="radio" name="source" value="Non-Scientific Publication" /> Non-Scientific Publication
     <br /><input type="radio" name="source" value="Technical Report" /> Technical Report
@@ -36,13 +35,18 @@
         <br/>
         <label for="sourceWS" style="width:9em;">Web Page</label><input type="radio" name="source" value="sourceWS" id="sourceWS" style="width:auto" /> 
         <br/>
+        <label for="sourceBK" style="width:9em;">Book (Print)</label><input type="radio" name="source" value="sourceBK" id="sourceBK" style="width:auto" />
+        <br />
     </div>
     <br />
 
         <div style="float:left">
             <label for="lastname">Authors</label> <input type="text" id="lastname"/> Lastname, FirstInitial. delimited with ;<br />
-            <label for="title">Article Title</label> <input type="text" id="title"/><br />
-            <div id="div_journal"><label for="journal">Journal</label><input type="text" id="journal" /><br /></div>
+            <label for="title">Article/Ch. Title</label> <input type="text" id="title"/> <br />
+            <div id="div_journal"><label for="journal">Journal/Book</label><input type="text" id="journal" /><br /></div>
+            <div id="div_edition"><label for="edition">Edition</label><input type="text" id="edition" /><br /></div>
+            <div id="div_publisher"><label for="publisher">Publisher</label><input type="text" id="publisher" /><br /></div>
+            <div id="div_publisherLoc"><label for="publisherLoc">Publisher City</label><input type="text" id="publisherLoc" /><br /></div>
             <div id="div_year"><label for="year">Year</label><input type="text" id="year" /><br /></div>
             <!-- <label for="month">Month</label><input type="text" id="month"/><br /> -->
             <div id="div_month">
